@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: push docker image 
-        uses: docker/push-action@v1
+        uses: docker push ericiachan/devops-cicd-dockerrepo
         with: 
           username: $ {{ secrets.DOCKER_USERNAME }}
           password: $ {{ secrets.DOCKER_PASSWORD }}
