@@ -44,13 +44,13 @@ jobs:
     steps:
      - uses: actions/checkout@main
      - uses: GokulDas027/TelegramBridge@master
-        if: always()
-        with:
-          chat: ${{ secrets.chat }} # save your chat id at settings/secrets with name: chat
-          token: ${{ secrets.token }} # savethe bot token at settings/secrets with name: token
-          status: ${{ job.status }} # don't change
-          event: ${{ github.event_name }} # don't change
-          actor: ${{ github.actor }} # don't change
+      if: always()
+      with:
+        chat: ${{ secrets.chat }} # save your chat id at settings/secrets with name: chat
+        token: ${{ secrets.token }} # savethe bot token at settings/secrets with name: token
+        status: ${{ job.status }} # don't change
+        event: ${{ github.event_name }} # don't change
+        actor: ${{ github.actor }} # don't change
 
 
 
