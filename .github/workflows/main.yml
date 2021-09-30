@@ -26,27 +26,16 @@ jobs:
           push: true
           tags: ericiachan/devops-cicd-dockerrepo:latest
           
+
+
   notify:
-    name: tele notif
     runs-on: ubuntu-latest
     steps:
-    - uses: naiw1023/notify-telegram@v0.0.2
-      if: always()
-      with:
-        chat: ${{ secrets.chat }} # user id or channel name secret
-        token: ${{ secrets.token }} # token secret
-        status: ${{ job.status }} # do not modify this line
-        message: "Custom Message"
-
-
-#   notify:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@main
-#       - uses: themakers/telegram-action@master
-#         with: 
-#           token: ${{ secrets.TELEGRAM_TOKEN }}
-#           to: ${{ secrets.TELEGRAM_TO }}
+      - uses: actions/checkout@main
+      - uses: themakers/telegram-action@master
+        with: 
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          to: ${{ secrets.TELEGRAM_TO }}
 
 #   notify:
 #     runs-on: ubuntu-latest
