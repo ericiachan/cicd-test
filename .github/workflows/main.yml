@@ -29,7 +29,3 @@ jobs:
         with:
           push: true
           tags: ericiachan/devops-cicd-dockerrepo:latest
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Workflow Complete
