@@ -31,10 +31,9 @@ jobs:
           tags: ericiachan/devops-cicd-dockerrepo:latest
           
       - name: whatsapp-notification
-        uses: actions/checkout@v2
+        uses: actions/checkout@main
         env:
           ACCOUNT_SID: ${{ secrets.ACCOUNT_SID }}
           AUTH_TOKEN: $ {{ secrets.AUTH_TOKEN }}
           TO_WHATSAPP_NUMBER: $ {{ secrets.TO_WHATSAPP_NUMBER }}
-        uses: ericiachan/cicd-test@main
-        
+
