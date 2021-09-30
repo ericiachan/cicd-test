@@ -28,6 +28,18 @@ jobs:
         with:
           push: true
           tags: ericiachan/devops-cicd-dockerrepo:latest
+          
+  send: 
+    name: send telegram message
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@main
+    - name: send custom message with args
+      uses: appleboy/telegram-action@master
+      with:
+        to: ${{ secrets.TELEGRAM_TO }}
+        token: ${{ secrets.TELEGRAM_TOKEN }}
+        args: The ${{ github.event_name }} event triggered first step.
 
 #   notify:
 #     runs-on: ubuntu-latest
@@ -38,19 +50,19 @@ jobs:
 #           token: ${{ secrets.TELEGRAM_TOKEN }}
 #           to: ${{ secrets.TELEGRAM_TO }}
 
-  notify:
-    runs-on: ubuntu-latest
+#   notify:
+#     runs-on: ubuntu-latest
 
-    steps:
-    - name: Notifier
-    - uses: GokulDas027/TelegramBridge@master
-      if: always()
-      with:
-        chat: ${{ secrets.chat }} # save your chat id at settings/secrets with name: chat
-        token: ${{ secrets.token }} # savethe bot token at settings/secrets with name: token
-        status: ${{ job.status }} # don't change
-        event: ${{ github.event_name }} # don't change
-        actor: ${{ github.actor }} # don't change
+#     steps:
+#     - name: Notifier
+#     - uses: GokulDas027/TelegramBridge@master
+#       if: always()
+#       with:
+#         chat: ${{ secrets.chat }} # save your chat id at settings/secrets with name: chat
+#         token: ${{ secrets.token }} # savethe bot token at settings/secrets with name: token
+#         status: ${{ job.status }} # don't change
+#         event: ${{ github.event_name }} # don't change
+#         actor: ${{ github.actor }} # don't change
 
 
 
