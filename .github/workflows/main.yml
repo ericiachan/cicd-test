@@ -39,11 +39,11 @@ jobs:
 #           token: ${{ secrets.TELEGRAM_TOKEN }}
 #           to: ${{ secrets.TELEGRAM_TO }}
 
-  notify:
+  send:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@main
-    - name: send custom message with args
+    - name: send default message
       uses: appleboy/telegram-action@master
       with:
         to: ${{ secrets.TELEGRAM_TO }}
