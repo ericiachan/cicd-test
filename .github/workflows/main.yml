@@ -26,22 +26,16 @@ jobs:
           push: true
           tags: ericiachan/devops-cicd-dockerrepo:latest
           
-          
-  send: 
-    name: send telegram message
+  notify:
+    name: tele notif
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: send default message
-      uses: appleboy/telegram-action@master
-      with:
-        to: ${{ secrets.TELEGRAM_TO }}
-        token: ${{ secrets.TELEGRAM_TOKEN }}
+    - uses: actions/checkout@main
     - name: send custom message with args
       uses: appleboy/telegram-action@master
       with:
-        to: ${{ secrets.TELEGRAM_TO }}
-        token: ${{ secrets.TELEGRAM_TOKEN }}
+        TELEGRAM_TO: ${{ secrets.TELEGRAM_TO }}
+        TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
         args: The ${{ github.event_name }} event triggered first step.
 
 #   notify:
