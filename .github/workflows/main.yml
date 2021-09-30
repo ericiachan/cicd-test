@@ -30,13 +30,14 @@ jobs:
     name: tele notif
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@main
-    - name: send custom message with args
-      uses: appleboy/telegram-action@master
+    - uses: naiw1023/notify-telegram@v0.0.2
+      if: always()
       with:
-        to: ${{ secrets.TELEGRAM_TO }}
-        token: ${{ secrets.TELEGRAM_TOKEN }}
-        args: The ${{ github.event_name }} event triggered first step.
+        chat: ${{ secrets.chat }} # user id or channel name secret
+        token: ${{ secrets.token }} # token secret
+        status: ${{ job.status }} # do not modify this line
+        message: "Custom Message"
+
 
 #   notify:
 #     runs-on: ubuntu-latest
