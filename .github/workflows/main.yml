@@ -36,4 +36,5 @@ jobs:
           ACCOUNT_SID: ${{ secrets.ACCOUNT_SID }}
           AUTH_TOKEN: $ {{ secrets.AUTH_TOKEN }}
           TO_WHATSAPP_NUMBER: $ {{ secrets.TO_WHATSAPP_NUMBER }}
+        uses: ericiachan/cicd-test@main
         
