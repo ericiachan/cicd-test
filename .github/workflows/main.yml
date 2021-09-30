@@ -43,14 +43,14 @@ jobs:
 #         token: ${{ secrets.TELEGRAM_TOKEN }}
 #         args: The ${{ github.event_name }} event triggered first step.
 
-  notify:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@main
-      - uses: themakers/telegram-action@master
-        with: 
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          to: ${{ secrets.TELEGRAM_TO }}
+#   notify:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@main
+#       - uses: themakers/telegram-action@master
+#         with: 
+#           token: ${{ secrets.TELEGRAM_TOKEN }}
+#           to: ${{ secrets.TELEGRAM_TO }}
 
 #   notify:
 #     runs-on: ubuntu-latest
