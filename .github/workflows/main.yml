@@ -32,7 +32,6 @@ jobs:
     name: Send alert to Telegram
     steps:
     - name: Telegram action step
-      uses: actions/checkout@main
       uses: emilianito/telegram-action@master
       with:
         bot-token: ${{ secrets.TELEGRAM_TOKEN}}
