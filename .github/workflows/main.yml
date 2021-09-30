@@ -29,18 +29,3 @@ jobs:
         with:
           push: true
           tags: ericiachan/devops-cicd-dockerrepo:latest
-
-
-      - uses: actions/checkout@main
-      - name: send default message
-        uses: appleboy/telegram-action@master
-        with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-
-      - name: send custom message with args
-        uses: appleboy/telegram-action@master
-        with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          args: The ${{ github.event_name }} event has been triggered.
