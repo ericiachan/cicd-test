@@ -30,5 +30,14 @@ jobs:
           push: true
           tags: ericiachan/devops-cicd-dockerrepo:latest
           
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+      - uses: themakers/telegram-action@master
+        with: 
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          to: ${{ secrets.TELEGRAM_TO }}
+          
 
 
