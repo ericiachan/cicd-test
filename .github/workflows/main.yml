@@ -36,7 +36,7 @@ jobs:
       with:
         bot-token: ${{ secrets.TELEGRAM_TOKEN}}
         chat-id: ${{ secrets.TELEGRAM_TO }}
-        custom-message: 'Custom message'
+        custom-message: $ {{github.event_name }} event triggered.
 
           
 
