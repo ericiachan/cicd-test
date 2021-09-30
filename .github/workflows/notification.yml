@@ -1,0 +1,21 @@
+# This is a basic workflow to help you get started with Actions
+name: push-notification
+
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+      - name: whatsapp-notify
+        env:
+          account_sid: ${{ secrets.account_sid }}
+          auth_token: ${{ secrets.auth_token }}
+          to_whatsapp_number: ${{ secrets.to_whatsapp_number }}
+
+
+        uses: ericiachan/cicd-test@main
+      
+      - name : Run
+        run: |
+          echo 'Start!'
