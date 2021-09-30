@@ -43,7 +43,6 @@ jobs:
 
     steps:
     - name: Notifier
-    - uses: actions/checkout@main
     - uses: GokulDas027/TelegramBridge@master
       if: always()
       with:
