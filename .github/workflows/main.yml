@@ -30,7 +30,5 @@ jobs:
           push: true
           tags: ericiachan/devops-cicd-dockerrepo:latest
           
-      - name: Telegram Action
-        uses: xinthink/action-telegram@v1.1
 
 
