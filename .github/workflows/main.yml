@@ -26,23 +26,32 @@ jobs:
           push: true
           tags: ericiachan/devops-cicd-dockerrepo:latest
           
-  send:
-    name: Send message
+  notify:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@main
-    - name: send default message
-      uses: appleboy/telegram-action@master
-      with:
-        to: ${{ secrets.TELEGRAM_TO }}
-        token: ${{ secrets.TELEGRAM_TOKEN }}
+      - uses: actions/checkout@main
+      - uses: themakers/telegram-action@master
+        with: 
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          to: ${{ secrets.TELEGRAM_TO }}
+          
+#   send:
+#     name: Send message
+#     runs-on: ubuntu-latest
+#     steps:
+#     - uses: actions/checkout@main
+#     - name: send default message
+#       uses: appleboy/telegram-action@master
+#       with:
+#         to: ${{ secrets.TELEGRAM_TO }}
+#         token: ${{ secrets.TELEGRAM_TOKEN }}
         
-    - name: send custom message with args
-      uses: appleboy/telegram-action@master
-      with:
-        to: ${{ secrets.TELEGRAM_TO }}
-        token: ${{ secrets.TELEGRAM_TOKEN }}
-        args: ${{ github.event_name }} event has been triggered.
+#     - name: send custom message with args
+#       uses: appleboy/telegram-action@master
+#       with:
+#         to: ${{ secrets.TELEGRAM_TO }}
+#         token: ${{ secrets.TELEGRAM_TOKEN }}
+#         args: ${{ github.event_name }} event has been triggered.
           
   
 #   telegram_job:
@@ -57,16 +66,6 @@ jobs:
 #         custom-message: $ {{ github.event_name }} event triggered.
 
           
-
-
-#   notify:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@main
-#       - uses: themakers/telegram-action@master
-#         with: 
-#           token: ${{ secrets.TELEGRAM_TOKEN }}
-#           to: ${{ secrets.TELEGRAM_TO }}
 
 #   notify:
 #     runs-on: ubuntu-latest
