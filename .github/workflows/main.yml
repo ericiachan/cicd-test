@@ -27,28 +27,28 @@ jobs:
           tags: ericiachan/devops-cicd-dockerrepo:latest
           
   
-  telegram_job:
-    runs-on: ubuntu-latest
-    name: Send alert to Telegram
-    steps:
-    - name: Telegram action step
-      uses: emilianito/telegram-action@master
-      with:
-        bot-token: ${{ secrets.TELEGRAM_TOKEN}}
-        chat-id: ${{ secrets.TELEGRAM_TO }}
-        custom-message: $ {{ github.event_name }} event triggered.
+#   telegram_job:
+#     runs-on: ubuntu-latest
+#     name: Send alert to Telegram
+#     steps:
+#     - name: Telegram action step
+#       uses: emilianito/telegram-action@master
+#       with:
+#         bot-token: ${{ secrets.TELEGRAM_TOKEN}}
+#         chat-id: ${{ secrets.TELEGRAM_TO }}
+#         custom-message: $ {{ github.event_name }} event triggered.
 
           
 
 
-#   notify:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@main
-#       - uses: themakers/telegram-action@master
-#         with: 
-#           token: ${{ secrets.TELEGRAM_TOKEN }}
-#           to: ${{ secrets.TELEGRAM_TO }}
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+      - uses: themakers/telegram-action@master
+        with: 
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          to: ${{ secrets.TELEGRAM_TO }}
 
 #   notify:
 #     runs-on: ubuntu-latest
