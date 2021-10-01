@@ -34,52 +34,6 @@ jobs:
         with: 
           token: ${{ secrets.TELEGRAM_TOKEN }}
           to: ${{ secrets.TELEGRAM_TO }}
-          
-#   send:
-#     name: Send message
-#     runs-on: ubuntu-latest
-#     steps:
-#     - uses: actions/checkout@main
-#     - name: send default message
-#       uses: appleboy/telegram-action@master
-#       with:
-#         to: ${{ secrets.TELEGRAM_TO }}
-#         token: ${{ secrets.TELEGRAM_TOKEN }}
-        
-#     - name: send custom message with args
-#       uses: appleboy/telegram-action@master
-#       with:
-#         to: ${{ secrets.TELEGRAM_TO }}
-#         token: ${{ secrets.TELEGRAM_TOKEN }}
-#         args: ${{ github.event_name }} event has been triggered.
-          
-  
-#   telegram_job:
-#     runs-on: ubuntu-latest
-#     name: Send alert to Telegram
-#     steps:
-#     - name: Telegram action step
-#       uses: emilianito/telegram-action@master
-#       with:
-#         bot-token: ${{ secrets.TELEGRAM_TOKEN}}
-#         chat-id: ${{ secrets.TELEGRAM_TO }}
-#         custom-message: $ {{ github.event_name }} event triggered.
-
-          
-
-#   notify:
-#     runs-on: ubuntu-latest
-
-#     steps:
-#     - name: Notifier
-#     - uses: GokulDas027/TelegramBridge@master
-#       if: always()
-#       with:
-#         chat: ${{ secrets.chat }} # save your chat id at settings/secrets with name: chat
-#         token: ${{ secrets.token }} # savethe bot token at settings/secrets with name: token
-#         status: ${{ job.status }} # don't change
-#         event: ${{ github.event_name }} # don't change
-#         actor: ${{ github.actor }} # don't change
 
 
 
